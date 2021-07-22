@@ -1,0 +1,16 @@
+﻿@inherits ExempleBase
+@page "/Exemple"
+@layout ExempleLayout
+<h1>@Message</h1>@info
+<button  @onclick='() => ChangeTexte("Bye")'>Changer</button>
+ 
+ <input type="text" name="Nom" @bind="MonContact.Nom" />
+ <input type="email" name="Email" @bind="MonContact.Email" />
+ <textarea name="Message" @bind="MonContact.Message"></textarea>
+<button @onclick="Send">Envoyer</button>
+<hr />
+@MonContact.Nom
+<br />
+@MonContact.Email
+<br />
+@MonContact.Message

@@ -1,0 +1,31 @@
+﻿@page "/counter/{currentCount:int?}"
+@inject NavigationManager nvm
+@*http://..../Counter/5*@
+
+<h1>Counter - @currentCount</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<a href="/">Retour Home</a>
+
+<p>Uri</p> @nvm.Uri
+@code {
+
+    private int? _currentCount;
+
+    [Parameter]
+    public int? currentCount
+    {
+        get { return _currentCount; }
+        set { _currentCount = value.HasValue ? value : 0; }
+    }
+
+
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

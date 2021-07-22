@@ -1,0 +1,24 @@
+﻿@page "/"
+@inject HttpClient Http
+<h2>@LastInfo</h2>
+
+<Exemple info="(From Index)Bonjour"
+         SendMessage="DisplayMessage"></Exemple>
+@* new Exemple(info);  monExemple.SendMessage=DisplayMessage*@
+@code
+{
+    [Parameter]
+    public string MessageFromChild
+    {
+        get; set;
+    }
+
+
+    private string LastInfo;
+    private void DisplayMessage(string Info)
+    {
+        LastInfo = "(From Exemple)" + Info;
+         
+    }
+
+}
